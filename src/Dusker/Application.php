@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dusker;
@@ -13,8 +14,6 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Class Application
- *
- * @package Dusker
  */
 class Application extends Container implements ApplicationContract, HttpKernelInterface
 {
@@ -30,7 +29,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Create a new Illuminate application instance.
      *
-     * @param  string|null $basePath
+     * @param string|null $basePath
      */
     public function __construct($basePath = null)
     {
@@ -48,8 +47,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Run the given array of bootstrap classes.
      *
-     * @param  array $bootstrappers
-     * @return void
+     * @param array $bootstrappers
      */
     public function bootstrapWith(array $bootstrappers)
     {
@@ -178,7 +176,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      */
     public function runningInConsole()
     {
-        return php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg';
+        return php_sapi_name() === 'cli' || php_sapi_name() === 'phpdbg';
     }
 
     /**

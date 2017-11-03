@@ -9,7 +9,3 @@ sudo: false
 install: travis_retry composer install --no-interaction --prefer-source
 
 script: vendor/bin/phpunit --verbose
-
-after_success:
-    - if [[ $COVERAGE = true ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-    - if [[ $COVERAGE = true ]]; then php ocular.phar code-coverage:upload --format=php-clover build/unit_coverage.xml; fi

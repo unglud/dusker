@@ -7,3 +7,8 @@ finder:
 
 enabled:
     - short_array_syntax
+
+disabled:
+    - concat_without_spaces
+    - trailing_comma_in_multiline_array
+    - unalign_double_arrow
