@@ -7,7 +7,6 @@ finder:
 
 enabled:
     - short_array_syntax
-    - phpdoc_annotation_without_dot
 
 disabled:
     - concat_without_spaces
