@@ -7,9 +7,9 @@ finder:
 
 enabled:
     - short_array_syntax
+    - phpdoc_annotation_without_dot
 
 disabled:
     - concat_without_spaces
     - trailing_comma_in_multiline_array
     - unalign_double_arrow
-    - phpdoc_annotation_without_dot
