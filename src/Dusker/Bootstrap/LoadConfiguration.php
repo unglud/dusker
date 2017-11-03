@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dusker\Bootstrap;
@@ -10,17 +11,14 @@ use Illuminate\Contracts\Config\Repository as RepositoryContract;
 use Symfony\Component\Finder\Finder;
 
 /**
- * Class LoadConfiguration
- *
- * @package Dusker\Bootstrap
+ * Class LoadConfiguration.
  */
 class LoadConfiguration
 {
     /**
      * Bootstrap the given application.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application $app
-     * @return void
+     * @param \Illuminate\Contracts\Foundation\Application $app
      */
     public function bootstrap(Application $app)
     {
@@ -41,9 +39,9 @@ class LoadConfiguration
     /**
      * Load the configuration items from all of the files.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application $app
-     * @param  \Illuminate\Contracts\Config\Repository $repository
-     * @return void
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     * @param \Illuminate\Contracts\Config\Repository      $repository
+     *
      * @throws \Exception
      */
     protected function loadConfigurationFiles(Application $app, RepositoryContract $repository)
@@ -62,7 +60,8 @@ class LoadConfiguration
     /**
      * Get all of the configuration files for the application.
      *
-     * @param  \Dusker\Application $app
+     * @param \Dusker\Application $app
+     *
      * @return array
      */
     protected function getConfigurationFiles(Application $app)
