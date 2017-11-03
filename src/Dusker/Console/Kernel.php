@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dusker\Console;
@@ -9,9 +10,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Foundation\Application;
 
 /**
- * Class Kernel
- *
- * @package Dusker\Console
+ * Class Kernel.
  */
 class Kernel implements KernelContract
 {
@@ -35,9 +34,8 @@ class Kernel implements KernelContract
     /**
      * Create a new console kernel instance.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application $app
-     * @param  \Illuminate\Contracts\Events\Dispatcher $events
-     * @return void
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     * @param \Illuminate\Contracts\Events\Dispatcher      $events
      */
     public function __construct(Application $app, Dispatcher $events)
     {
@@ -56,8 +54,9 @@ class Kernel implements KernelContract
     /**
      * Run the console application.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Symfony\Component\Console\Input\InputInterface   $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
      * @return int
      */
     public function handle($input, $output = null)
@@ -87,9 +86,8 @@ class Kernel implements KernelContract
     /**
      * Terminate the application.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface $input
-     * @param  int $status
-     * @return void
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param int                                             $status
      */
     public function terminate($input, $status)
     {
@@ -99,8 +97,9 @@ class Kernel implements KernelContract
     /**
      * Run an Artisan console command by name.
      *
-     * @param  string $command
-     * @param  array $parameters
+     * @param string $command
+     * @param array  $parameters
+     *
      * @return int
      */
     public function call($command, array $parameters = [])
@@ -111,8 +110,9 @@ class Kernel implements KernelContract
     /**
      * Queue an Artisan console command by name.
      *
-     * @param  string $command
-     * @param  array $parameters
+     * @param string $command
+     * @param array  $parameters
+     *
      * @return \Illuminate\Foundation\Bus\PendingDispatch
      */
     public function queue($command, array $parameters = [])
@@ -142,8 +142,6 @@ class Kernel implements KernelContract
 
     /**
      * Bootstrap the application for artisan commands.
-     *
-     * @return void
      */
     public function bootstrap()
     {

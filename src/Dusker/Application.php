@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
- * Class Application
+ * Class Application.
  */
 class Application extends Container implements ApplicationContract, HttpKernelInterface
 {
@@ -75,7 +75,8 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Set the base path for the application.
      *
-     * @param  string $basePath
+     * @param string $basePath
+     *
      * @return $this
      */
     public function setBasePath($basePath)
@@ -92,8 +93,9 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      *
      * (Overriding Container::make)
      *
-     * @param  string $abstract
-     * @param  array $parameters
+     * @param string $abstract
+     * @param array  $parameters
+     *
      * @return mixed
      */
     public function make($abstract, array $parameters = [])
@@ -131,6 +133,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      * Get the path to the application configuration files.
      *
      * @param string $path Optionally, a path to append to the config path
+     *
      * @return string
      */
     public function configPath($path = '')
@@ -176,7 +179,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      */
     public function runningInConsole()
     {
-        return php_sapi_name() === 'cli' || php_sapi_name() === 'phpdbg';
+        return 'cli' === php_sapi_name() || 'phpdbg' === php_sapi_name();
     }
 
     /**
@@ -191,8 +194,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Register all of the configured providers.
-     *
-     * @return void
      */
     public function registerConfiguredProviders()
     {
@@ -202,9 +203,10 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Register a service provider with the application.
      *
-     * @param  \Illuminate\Support\ServiceProvider|string $provider
-     * @param  array $options
-     * @param  bool $force
+     * @param \Illuminate\Support\ServiceProvider|string $provider
+     * @param array                                      $options
+     * @param bool                                       $force
+     *
      * @return \Illuminate\Support\ServiceProvider
      */
     public function register($provider, $options = [], $force = false)
@@ -239,9 +241,8 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Register a deferred provider and service.
      *
-     * @param  string $provider
-     * @param  string|null $service
-     * @return void
+     * @param string      $provider
+     * @param string|null $service
      */
     public function registerDeferredProvider($provider, $service = null)
     {
@@ -250,8 +251,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Boot the application's service providers.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -276,8 +275,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Register a new boot listener.
      *
-     * @param  mixed $callback
-     * @return void
+     * @param mixed $callback
      */
     public function booting($callback)
     {
@@ -287,8 +285,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Register a new "booted" listener.
      *
-     * @param  mixed $callback
-     * @return void
+     * @param mixed $callback
      */
     public function booted($callback)
     {
@@ -322,9 +319,9 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      * and do its best to convert them to a Response instance.
      *
      * @param Request $request A Request instance
-     * @param int $type The type of the request
+     * @param int     $type    The type of the request
      *                         (one of HttpKernelInterface::MASTER_REQUEST or HttpKernelInterface::SUB_REQUEST)
-     * @param bool $catch Whether to catch exceptions or not
+     * @param bool    $catch   Whether to catch exceptions or not
      *
      * @return Response A Response instance
      *
@@ -337,8 +334,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Terminate the application.
-     *
-     * @return void
      */
     public function terminate()
     {
@@ -349,8 +344,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Register the core class aliases in the container.
-     *
-     * @return void
      */
     public function registerCoreContainerAliases()
     {
@@ -372,8 +365,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Register the basic bindings into the container.
-     *
-     * @return void
      */
     protected function registerBaseBindings()
     {
@@ -400,8 +391,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Mark the given provider as registered.
      *
-     * @param  \Illuminate\Support\ServiceProvider $provider
-     * @return void
+     * @param \Illuminate\Support\ServiceProvider $provider
      */
     protected function markAsRegistered($provider)
     {
@@ -413,7 +403,8 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     /**
      * Boot the given service provider.
      *
-     * @param  \Illuminate\Support\ServiceProvider $provider
+     * @param \Illuminate\Support\ServiceProvider $provider
+     *
      * @return mixed
      */
     protected function bootProvider(ServiceProvider $provider)
@@ -422,5 +413,4 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
             return $this->call([$provider, 'boot']);
         }
     }
-
 }
