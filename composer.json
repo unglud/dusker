@@ -1,0 +1,53 @@
+{
+  "name": "unglud/dusker",
+  "description": "Stand alone Laravel Dusk test suit, which do not require Laravel framework itself.",
+  "keywords": [
+    "laravel",
+    "testing",
+    "webdriver"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksandr Matrosov",
+      "email": "unglud@gmail.com"
+    }
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.0",
+    "illuminate/config": "^5.5",
+    "illuminate/container": "^5.5",
+    "illuminate/events": "^5.5",
+    "illuminate/filesystem": "^5.5",
+    "illuminate/support": "^5.5",
+    "laravel/dusk": "^2.0",
+    "symfony/http-kernel": "^3.3",
+    "vlucas/phpdotenv": "^2.4"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.0",
+    "phpunit/phpunit": "^6.0"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_exists('../artisan') || copy('artisan', '../artisan');\"",
+      "php -r \"file_exists('../.env') || copy('.env.example', '../.env');\"",
+      "php -r \"file_exists('../tests') || mkdir(dirname('../tests/config'), 0777, true);\"",
+      "php -r \"copy('src/example/config/app.php', '../tests/config/app.php');\"",
+      "php -r \"copy('src/example/CreatesApplication.php', '../tests/CreatesApplication.php');\""
+    ]
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "Dusker\\": "./src/Dusker",
+      "Illuminate\\Foundation\\Testing\\": "./src/Illuminate/Foundation/Testing"
+    }
+  }
+}
