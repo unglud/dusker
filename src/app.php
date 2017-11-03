@@ -17,7 +17,6 @@ $app = new Dusker\Application(
     realpath(__DIR__ . '/../')
 );
 
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

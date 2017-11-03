@@ -7,7 +7,7 @@ use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 /**
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class HelpersTest extends TestCase
 {
@@ -18,7 +18,7 @@ class HelpersTest extends TestCase
 
     public function testCache()
     {
-        $app = new Application;
+        $app = new Application();
         $app['cache'] = $cache = m::mock('stdClass');
 
         // 1. cache()
