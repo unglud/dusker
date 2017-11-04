@@ -48,6 +48,11 @@ After installing the package, Artisan commands will be available from your root 
 php artisan dusk:install
 ```
 
+Now try run test to make sure everything works
+```
+php artisan dusk
+```
+
 ## How to use
 After this part you can use official documentation for Dusk on the [Laravel website](https://laravel.com/docs/master/dusk), `cuz it will work exactly as it was designed by [Taylor Otwell](https://github.com/taylorotwell).
 
