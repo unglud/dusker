@@ -12,16 +12,44 @@ Stand alone Laravel Dusk test suit, which do not require Laravel framework itsel
 
 ## Installation
 To get started, you should add the unglud/dusker Composer dependency to your project:
+```
+composer require --dev unglud/dusker
+```
 
-```composer require --dev unglud/dusker```
+Next you need to copy all necessary files to your working directory. Command below will do it for you. It creates (or use existing) `tests` directory and put files there. Also it copy `artisan` console utility to your project root directory. **If you already have this file, it will be overwritten!**
+`.env.dusk` file will be in your project root as well, which you will need rename to `.env` or copy it contens to your existing one.
+```
+composer run-script post-install-cmd -d ./vendor/unglud/dusker
+```
 
-After installing the package, Artisan commands will be available from your root project. Run the dusk:install Artisan command:
+If you would like this files update automaticaly each time you update this package, you can add this to your `composer.json` file:
+```
+"scripts": {
+  "post-install-cmd": [
+    "Dusker\\CopyFile::copy"
+  ],
+  "post-update-cmd": [
+    "Dusker\\CopyFile::copy"
+  ]
+},
+"extra": {
+  "copy-file": {
+    "vendor/unglud/dusker/src/example/": "tests/",
+    "vendor/unglud/dusker/artisan": "artisan"
+  }
+}
+```
 
-```php artisan dusk:install```
+As you notice file `.env.dusk` not included there to simplify things.
+
+After installing the package, Artisan commands will be available from your root project. Run the `dusk:install` Artisan command:
+
+```
+php artisan dusk:install
+```
 
 ## How to use
-
-Documentation for Dusk can be found on the [Laravel website](https://laravel.com/docs/master/dusk).
+After this part you can use official documentation for Dusk on the [Laravel website](https://laravel.com/docs/master/dusk), `cuz it will work exactly as it was designed by [Taylor Otwell](https://github.com/taylorotwell).
 
 ## License
 

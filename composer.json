@@ -45,9 +45,9 @@
   },
   "extra": {
     "copy-file": {
-      "vendor/unglud/example/": "tests",
-      "vendor/unglud/.env.example": ".env.dusk",
-      "vendor/unglud/artisan": "artisan"
+      "src/example/": "../../../tests/",
+      ".env.example": "../../../.env.dusk",
+      "artisan": "../../../artisan"
     }
   },
   "autoload": {

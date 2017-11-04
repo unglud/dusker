@@ -72,7 +72,7 @@ class CopyFile
                     $dest = sprintf('%s/%s', $to, $file->getRelativePathname());
 
                     try {
-                        $fs->copy($file, $dest);
+                        $fs->copy($file, $dest, true);
                     } catch (IOException $e) {
                         throw new \InvalidArgumentException(
                             sprintf('<error>Could not copy %s</error> %s', $file->getBasename(), $e->getMessage())
@@ -82,9 +82,9 @@ class CopyFile
             } else {
                 try {
                     if ($isRenameFile) {
-                        $fs->copy($from, $to);
+                        $fs->copy($from, $to, true);
                     } else {
-                        $fs->copy($from, $to . '/' . basename($from));
+                        $fs->copy($from, $to . '/' . basename($from), true);
                     }
                 } catch (IOException $e) {
                     throw new \InvalidArgumentException(

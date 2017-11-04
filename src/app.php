@@ -14,7 +14,7 @@
 use Laravel\Dusk\DuskServiceProvider;
 
 $app = new Dusker\Application(
-    realpath(__DIR__ . '/../')
+    dirname(__DIR__, 4)
 );
 
 /*
