@@ -57,7 +57,7 @@
     "psr-4": {
       "Dusker\\": "./src/Dusker",
       "Illuminate\\Foundation\\Testing\\": "./src/Illuminate/Foundation/Testing",
-      "Tests\\": "./tests"
+      "Tests\\": "../../../tests"
     }
   }
 }
