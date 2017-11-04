@@ -70,6 +70,7 @@ class CopyFile
 
                 foreach ($finder as $file) {
                     $dest = sprintf('%s/%s', $to, $file->getRelativePathname());
+
                     try {
                         $fs->copy($file, $dest);
                     } catch (IOException $e) {
