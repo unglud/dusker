@@ -17,7 +17,7 @@ class CopyFile
      *
      * @throws \InvalidArgumentException
      */
-    public static function copy(Event $event): void
+    public static function copy(Event $event)
     {
         $extras = $event->getComposer()->getPackage()->getExtra();
 
