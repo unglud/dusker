@@ -59,9 +59,9 @@ class CopyFile
                     $fs->mkdir($to);
                 }
             } catch (IOException $e) {
-                throw new \InvalidArgumentException(
-                    sprintf('<error>Could not create directory %s.</error>  %s', $to, $e->getMessage())
-                );
+                $io->write(sprintf('%s. It is ok, if you develop this package.', $e->getMessage()));
+
+                return;
             }
 
             if (is_dir($from)) {
