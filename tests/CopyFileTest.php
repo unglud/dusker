@@ -12,7 +12,7 @@ use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class CopyFileTest
+ * Class CopyFileTest.
  */
 class CopyFileTest extends TestCase
 {
@@ -139,8 +139,10 @@ class CopyFileTest extends TestCase
     }
 
     /** @noinspection ReturnTypeCanBeDeclaredInspection */
+
     /**
      * @param $copyFileConfig
+     *
      * @return \Composer\Script\Event
      */
     private function getEventMock($copyFileConfig)
@@ -158,12 +160,13 @@ class CopyFileTest extends TestCase
             ->method('getIO')
             ->will($this->returnValue($this->createMock(IOInterface::class)));
 
-        /** @var \Composer\Script\Event $event */
+        /* @var \Composer\Script\Event $event */
         return $event;
     }
 
     /**
      * @param $copyFileConfig
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
     private function getComposerMock($copyFileConfig): \PHPUnit_Framework_MockObject_MockObject
@@ -184,6 +187,7 @@ class CopyFileTest extends TestCase
 
     /**
      * @param $copyFileConfig
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
     private function getPackageMock($copyFileConfig): \PHPUnit_Framework_MockObject_MockObject

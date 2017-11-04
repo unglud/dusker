@@ -8,13 +8,13 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 /**
- * Class ScriptHandler is modified version of https://github.com/slowprog/CopyFile
- * @package SlowProg\CopyFile
+ * Class ScriptHandler is modified version of https://github.com/slowprog/CopyFile.
  */
 class CopyFile
 {
     /**
      * @param Event $event
+     *
      * @throws \InvalidArgumentException
      */
     public static function copy(Event $event): void
@@ -36,7 +36,7 @@ class CopyFile
             );
         }
 
-        $fs = new Filesystem;
+        $fs = new Filesystem();
         $io = $event->getIO();
 
         foreach ($files as $from => $to) {
@@ -46,7 +46,7 @@ class CopyFile
             }
 
             // Check the renaming of file for direct moving (file-to-file)
-            $isRenameFile = substr($to, -1) !== '/' && !is_dir($from);
+            $isRenameFile = '/' !== substr($to, -1) && !is_dir($from);
 
             if (!$isRenameFile && file_exists($to) && !is_dir($to)) {
                 throw new \InvalidArgumentException('Destination directory is not a directory.');
@@ -65,7 +65,7 @@ class CopyFile
             }
 
             if (is_dir($from)) {
-                $finder = new Finder;
+                $finder = new Finder();
                 $finder->files()->in($from);
 
                 foreach ($finder as $file) {
