@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Tests;
 
 /**
- * Class LoginManager
- *
- * @package Tests
+ * Class LoginManager.
  */
-class LoginManager
+class LoginManagerExample
 {
     /**
      * @param $login
      * @param $password
+     *
      * @return string
      */
     public function login($login, $password)
