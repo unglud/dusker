@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dusker;
@@ -12,10 +13,13 @@ use Symfony\Component\Filesystem\Filesystem;
 class Browser extends DuskBrowser
 {
     /** @noinspection PhpMissingParentCallCommonInspection */
+
     /**
      * @param object|string $userId
-     * @param null $guard
+     * @param null          $guard
+     *
      * @return string
+     *
      * @throws \UnexpectedValueException
      */
     public function loginAs($userId, $guard = null)
@@ -46,7 +50,7 @@ class Browser extends DuskBrowser
             $fs->mirror(dirname(__DIR__) . '/endpoint', $endpointPath . dirname(config('app.endpoint')));
         }
 
-        /** @noinspection PhpStrictTypeCheckingInspection */
+        /* @noinspection PhpStrictTypeCheckingInspection */
         return config('app.endpoint');
     }
 
@@ -56,5 +60,4 @@ class Browser extends DuskBrowser
         $endpointPath = base_path() . env('LOGIN_ENDPOINT') . dirname(config('app.endpoint'));
         $fs->remove($endpointPath);
     }
-
 }
