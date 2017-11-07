@@ -30,11 +30,12 @@ class Browser extends DuskBrowser
 
         $this->visit($endpoint . '?' . http_build_query(compact('login', 'password')));
 
-        $this->removeEndpoint();
+        //$this->removeEndpoint();
     }
 
     /**
      * @return string
+     *
      * @throws \UnexpectedValueException
      */
     protected function getEndpoint(): string
