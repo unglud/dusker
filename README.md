@@ -56,6 +56,21 @@ php artisan dusk
 ## How to use
 After this part you can use official documentation for Dusk on the [Laravel website](https://laravel.com/docs/master/dusk), `cuz it will work exactly as it was designed by [Taylor Otwell](https://github.com/taylorotwell).
 
+## Authentication
+Often, you will be testing pages that require authentication. You can use Dusk's loginAs method in order to avoid interacting with the login screen during every test. The loginAs method accepts a user `login` and `password`:
+
+```
+$this->browse(function (Browser $browser) {
+    $browser->loginAs('username', 'password')
+          ->visit('/home');
+});
+```
+After using the loginAs method, the user session will be maintained for all tests within the file.
+
+### Authentication Setup
+Since we do not have access to native `Auth` and `Router` from Laravel, because we use it without Laravel we need to setup login functionality.
+In `.env` you should specify `LOGIN_ENDPOINT` -- path to you public directory where Dusker will copy file which will be accessible from browser. By default its `http://example.com/_dusker/login.php`. Second `LOGIN_IMPLEMENTATION` -- path to your class, which utilise logick of your project allowing Authentication. You can use `/tests/LoginManagerExample.php` as example of how it should look.
+
 ## License
 
 Dusker is released under the MIT Licence. See the bundled [LICENSE](https://github.com/unglud/dusker/blob/master/LICENSE) file for details.
