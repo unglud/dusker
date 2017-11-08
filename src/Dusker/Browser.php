@@ -31,6 +31,8 @@ class Browser extends DuskBrowser
         $this->visit($endpoint . '?' . http_build_query(compact('login', 'password')));
 
         //$this->removeEndpoint();
+
+        return $this;
     }
 
     /**
