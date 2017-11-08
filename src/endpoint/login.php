@@ -6,10 +6,11 @@ use Dotenv\Dotenv;
 
 $docRoot = getenv('DOCUMENT_ROOT');
 
-while ($docRoot !== '/') {
+while ('/' !== $docRoot) {
     $vendor = glob($docRoot . '/vendor');
     if (!empty($vendor)) {
         require_once current($vendor) . '/autoload.php';
+
         break;
     }
     $docRoot = dirname($docRoot);
