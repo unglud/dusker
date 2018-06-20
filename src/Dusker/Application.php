@@ -18,12 +18,19 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 class Application extends Container implements ApplicationContract, HttpKernelInterface
 {
     protected $basePath;
+
     protected $serviceProviders = [];
+
     protected $booted = false;
+
     protected $loadedProviders = [];
+
     protected $terminatingCallbacks = [];
+
     protected $hasBeenBootstrapped = false;
+
     protected $environmentPath;
+
     protected $environmentFile = '.env';
 
     /**
