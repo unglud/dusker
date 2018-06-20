@@ -15,10 +15,15 @@ use Illuminate\Contracts\Foundation\Application;
 class Kernel implements KernelContract
 {
     protected $artisan;
+
     protected $app;
+
     protected $commandsLoaded = false;
+
     protected $events;
+
     protected $commands = [];
+
     protected $bootstrappers = [
         \Dusker\Bootstrap\LoadEnvironmentVariables::class,
         \Dusker\Bootstrap\LoadConfiguration::class,
