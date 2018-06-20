@@ -1,5 +1,5 @@
 # dusker
-Stand alone Laravel Dusk test suit, which do not require Laravel framework itself.
+Stand-alone Laravel Dusk test suit, which does not require Laravel framework itself.
 
 <a href="https://travis-ci.org/laravel/dusk"><img src="https://travis-ci.org/unglud/dusker.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/unglud/dusker"><img src="https://poser.pugx.org/unglud/dusker/d/total.svg" alt="Total Downloads"></a>
@@ -8,7 +8,7 @@ Stand alone Laravel Dusk test suit, which do not require Laravel framework itsel
 
 <p><img src="https://laravel.com/assets/img/components/logo-dusk.svg"></p>
 
-<a href="https://github.com/laravel/dusk">Laravel Dusk</a> provides an expressive, easy-to-use browser automation and testing API. By default, Dusk does not require you to install JDK or Selenium on your machine. Instead, Dusk uses a standalone Chromedriver. However, you are free to utilize any other Selenium driver you wish.
+<a href="https://github.com/laravel/dusk">Laravel Dusk</a> provides an expressive, easy-to-use browser automation and testing API. By default, Dusk does not require you to install JDK or Selenium on your machine. Instead, Dusk uses a standalone Chrome driver. However, you are free to utilize any other Selenium driver you wish.
 
 ## Installation
 To get started, you should add the unglud/dusker Composer dependency to your project:
@@ -16,13 +16,14 @@ To get started, you should add the unglud/dusker Composer dependency to your pro
 composer require --dev unglud/dusker
 ```
 
-Next you need to copy all necessary files to your working directory. Command below will do it for you. It creates (or use existing) `tests` directory and put files there. Also it copy `artisan` console utility to your project root directory. **If you already have this file, it will be overwritten!**
-`.env.dusk` file will be in your project root as well, which you will need rename to `.env` or copy it contens to your existing one.
+Next, you need to copy all necessary files to your working directory. The command below will do it for you. It creates (or use existing) `tests` directory and put files there. Also, it copies `artisan` console utility to your project root directory. **If you already have this file, it will be overwritten!**
+
+The file `.env.dusk` will be in your project root as well, which you will need rename to `.env` or copy it content to your existing one.
 ```
 composer run-script post-install-cmd -d ./vendor/unglud/dusker
 ```
 
-If you would like this files update automaticaly each time you update this package, you can add this to your `composer.json` file:
+If you would like these files to update automatically each time you update this package, you can add this to your `composer.json` file:
 ```
 "scripts": {
   "post-install-cmd": [
@@ -48,7 +49,7 @@ After installing the package, Artisan commands will be available from your root 
 php artisan dusk:install
 ```
 
-Now try run test to make sure everything works
+Now try to run test to make sure everything works
 ```
 php artisan dusk
 ```
@@ -69,7 +70,7 @@ After using the loginAs method, the user session will be maintained for all test
 
 ### Authentication Setup
 Since we do not have access to native `Auth` and `Router` from Laravel, because we use it without Laravel we need to setup login functionality.
-In `.env` you should specify `LOGIN_ENDPOINT` -- path to you public directory where Dusker will copy file which will be accessible from browser. By default its `http://example.com/_dusker/login.php`. Second `LOGIN_IMPLEMENTATION` -- path to your class, which utilise logick of your project allowing Authentication. You can use `/tests/LoginManagerExample.php` as example of how it should look.
+In `.env` you should specify `LOGIN_ENDPOINT` -- path to your public directory where Dusker will copy the file which will be accessible from a browser. By default its `http://example.com/_dusker/login.php`. Second `LOGIN_IMPLEMENTATION` -- path to your class, which utilize logic of your project allowing Authentication. You can use `/tests/LoginManagerExample.php` as an example of how it should look.
 
 ## License
 
